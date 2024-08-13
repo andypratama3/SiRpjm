@@ -23,14 +23,27 @@ class UserSeeder extends Seeder
 
         $panitia->assignRole('panitia');
 
-        $warga = User::create([
-            'name' => 'warga',
-            'email' => 'warga@gmail.com',
-            'password' => Hash::make('warga1234'),
+        $rt = User::create([
+            'name' => 'rt',
+            'email' => 'rt@gmail.com',
+            'password' => Hash::make('rt1234'),
+            'jabatan' => 'rt',
+            'nomor' => '1',
             'email_verified_at' => now(),
         ]);
 
-        $warga->assignRole('warga');
+        $rt->assignRole('rt');
+
+        $rw = User::create([
+            'name' => 'rw',
+            'email' => 'rw@gmail.com',
+            'password' => Hash::make('rw1234'),
+            'jabatan' => 'rt',
+            'nomor' => '1',
+            'email_verified_at' => now(),
+        ]);
+
+        $rw->assignRole('rw');
 
 
         $pemdes = User::create([

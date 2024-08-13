@@ -50,6 +50,8 @@ class PermissionSeeder extends Seeder
             'panitia',
             'warga',
             'pemdes',
+            'rt',
+            'rw',
         ];
 
         foreach ($roles as $role) {
@@ -71,8 +73,8 @@ class PermissionSeeder extends Seeder
             'hasil-index',
         ]);
 
-        $warga = Role::where('name', 'warga')->first();
-        $warga->syncPermissions([
+        $rt = Role::where('name', 'rt')->first();
+        $rt->syncPermissions([
             'mengusulkan-create',
             'mengusulkan-edit',
             'mengusulkan-delete',
@@ -88,6 +90,26 @@ class PermissionSeeder extends Seeder
             'hasil-store',
             'hasil-update',
         ]);
+
+        $rw = Role::where('name', 'rw')->first();
+        $rw->syncPermissions([
+            'mengusulkan-create',
+            'mengusulkan-edit',
+            'mengusulkan-delete',
+            'mengusulkan-show',
+            'mengusulkan-index',
+            'mengusulkan-store',
+            'mengusulkan-update',
+            'hasil-create',
+            'hasil-edit',
+            'hasil-delete',
+            'hasil-show',
+            'hasil-index',
+            'hasil-store',
+            'hasil-update',
+        ]);
+
+
 
         Log::info('Roles and permissions have been seeded successfully.');
     }

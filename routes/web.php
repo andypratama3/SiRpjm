@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\RoleController;
+use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\UsulController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\HasilUsulController;
@@ -23,7 +24,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
 
     Route::get('/', DashboardController::class)->name('dashboard');
 
-    Route::resource('/role', RoleController::class, ['names' => 'dashboard.role']);
+    Route::resource('role', RoleController::class, ['names' => 'dashboard.role']);
+
+    Route::resource('users', UserController::class, ['names' => 'dashboard.users']);
+
 
     //usul
     Route::resource('usul', UsulController::class, ['names' => 'dashboard.usul']);

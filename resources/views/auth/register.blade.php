@@ -40,6 +40,38 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="jabatan" class="col-md-4 col-form-label text-md-end">{{ __('jabatan') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="jabatan" id="jabatan" class="form-control @error('jabatan') is-invalid @enderror">
+                                    <option disabled selected>Pilih Jabatan</option>
+                                    <option value="rt">Rt</option>
+                                    <option value="rw">Rw</option>
+                                </select>
+
+                                @error('jabatan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="nomor" class="col-md-4 col-form-label text-md-end">{{ __('Nomor') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="nomor" type="number" class="form-control @error('nomor') is-invalid @enderror" name="nomor" required >
+
+                                @error('nomor')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
