@@ -76,7 +76,6 @@ class RegisterController extends Controller
 
 
         $user->assignRole($data['jabatan']);
-
         return $user;
     }
 }

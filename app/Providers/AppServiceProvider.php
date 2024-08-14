@@ -20,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        //paginator
+
+        \Illuminate\Pagination\Paginator::useBootstrap();
         Gate::before(function ($user, $ability) {
                 if ($user->hasRole('panitia')) {
                     return true;

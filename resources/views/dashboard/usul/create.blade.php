@@ -31,6 +31,11 @@
                         <input type="text" name="satuan" class="form-control" value="{{ old('satuan') }}" placeholder="Satuan">
                     </div>
 
+                    <div class="col-md-12">
+                        <label for="biaya" class="form-label">Biaya Tafsiran</label>
+                        <input type="text" name="biaya" class="form-control" id="biaya" value="{{ old('biaya') }}" placeholder="biaya">
+                    </div>
+
                     <div class="col-md-12 mt-4">
                         <a href="{{ route('dashboard.usul.index') }}" class="btn btn-danger btn-sm">Kembali</a>
                         <button type="submit" class="btn btn-primary btn-sm">Submit</button>
@@ -40,4 +45,35 @@
         </div>
     </div>
 </div>
+
+@push('js')
+    <script>
+         $(document).ready(function () {
+        $('#biaya').on('input', function () {
+        let biaya = $(this).val();
+            biaya = biaya.replace(/[^0-9.]/g, '');
+            biaya = formatRupiah(biaya);
+            $(this).val(biaya);
+        });
+
+        // Fungsi untuk memformat angka sebagai mata uang Rupiah
+        function formatRupiah(angka) {
+            var number_string = angka.toString().replace(/[^,\d]/g, ''),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return rupiah;
+
+        }
+    });
+    </script>
+@endpush
 @endsection

@@ -23,7 +23,7 @@ class UsulController extends Controller
     {
         $limit = 10;
 
-        $usuls = Usul::select('id','name', 'lokasi', 'volume', 'satuan','status','user_id')->where('status','!=' ,'DiTerima');
+        $usuls = Usul::select('id','name', 'lokasi', 'volume', 'satuan','status','user_id','biaya','tahun_prioritas')->where('status','!=' ,'DiTerima');
         if(Auth::user()->hasRole('panitia')){
 
         }else{
@@ -55,7 +55,9 @@ class UsulController extends Controller
                 'lokasi' => $request->lokasi,
                 'volume' => $request->volume,
                 'satuan' => $request->satuan,
-                'user_id' => Auth::user()->id
+                'user_id' => Auth::user()->id,
+                'biaya' => $request->biaya,
+                'tahun_prioritas' => $request->tahun_prioritas
             ]
         );
         flash()->success('Usul Berhasil Tambah.');
@@ -80,6 +82,8 @@ class UsulController extends Controller
             'lokasi' => 'required|string|max:255',
             'volume' => 'required|string|max:255',
             'satuan' => 'required|string|max:255',
+            'status' => 'required|string|max:255',
+            'tahun_prioritas' => 'required|string|max:255',
         ]);
 
 
@@ -90,6 +94,8 @@ class UsulController extends Controller
                 'volume' => $request->volume,
                 'satuan' => $request->satuan,
                 'status' => $request->status,
+                'biaya' => $request->biaya,
+                'tahun_prioritas' => $request->tahun_prioritas
             ]
         );
         flash()->success('Usul Berhasil Hapus.');

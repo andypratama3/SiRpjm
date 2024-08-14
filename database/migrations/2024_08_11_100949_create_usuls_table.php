@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('volume');
             $table->text('satuan');
             $table->string('status')->default('menunggu');
+            $table->string('biaya');
+            $table->string('tahun_prioritas')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

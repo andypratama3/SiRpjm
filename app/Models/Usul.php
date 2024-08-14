@@ -18,5 +18,12 @@ class Usul extends Model
         'satuan',
         'status',
         'user_id',
+        'biaya',
+        'tahun_prioritas',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

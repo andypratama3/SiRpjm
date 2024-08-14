@@ -13,7 +13,7 @@
         <div class="card-body mt-0">
 
             <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table align-items-center mb-0 text-center">
                     <thead class="thead-light">
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder">No</th>
@@ -21,7 +21,11 @@
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Lokasi</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Volume</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Satuan</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Biaya Tafsiran</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Jabatan</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Nomor</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Status</th>
+
 
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Action</th>
                         </tr>
@@ -36,6 +40,10 @@
                             <td> <p class="text-xs font-weight-bold mb-0">{{ $usul->lokasi }} </p></td>
                             <td> <p class="text-xs font-weight-bold mb-0">{{ $usul->volume }} </p></td>
                             <td> <p class="text-xs font-weight-bold mb-0">{{ $usul->satuan }} </p></td>
+                            <td> <p class="text-xs font-weight-bold mb-0">{{ $usul->biaya }}</p></td>
+                            <td> <p class="text-xs font-weight-bold mb-0">{{ $usul->user->jabatan }}</p></td>
+                            <td> <p class="text-xs font-weight-bold mb-0">{{ $usul->user->nomor }}</p></td>
+
                             <td>
                                     @if ($usul->status == 'DiTerima')
                                         <span class="badge badge-sm bg-gradient-success">Di Terima</span>
@@ -70,6 +78,11 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="card-footer clearfix">
+                <ul class="pagination pagination-rounded justify-content-end mb-0">
+                    {{ $usuls->links() }}
+                </ul>
             </div>
         </div>
     </div>

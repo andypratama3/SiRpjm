@@ -31,6 +31,13 @@
                         <input type="text" name="satuan" class="form-control" value="{{ $usul->satuan }}" placeholder="Satuan" readonly>
                     </div>
 
+
+                    <div class="col-md-12">
+                        <label for="biaya" class="form-label">Biaya Tafsiran</label>
+                        <input type="text" name="biaya" class="form-control" id="biaya" value="{{ old('biaya', $usul->biaya) }}" placeholder="biaya">
+                    </div>
+
+
                     <div class="col-md-12">
                         <label for="status" class="form-label">status</label>
                         <div class="col-md-6">
@@ -43,6 +50,11 @@
                         @endif
                         </div>
 
+                    </div>
+                    <div class="col-md-12">
+                        <label for="Tahun" class="form-label">Tahun Prioritas</label>
+                        {{-- input year  --}}
+                        <input type="text" name="Tahun" class="form-control" value="{{ old('tahun_prioritas') ?? $usul->tahun_prioritas }}" placeholder="Tahun Prioritas">
                     </div>
                     <div class="col-md-12 mt-4">
                         <a href="{{ route('dashboard.usul.index') }}" class="btn btn-danger btn-sm">Kembali</a>

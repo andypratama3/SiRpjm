@@ -22,7 +22,7 @@ class HasilUsulController extends Controller
     {
         $limit = 10;
 
-        $usuls = Usul::select('id','name', 'lokasi', 'volume', 'satuan','status','user_id')->where('status', '!=', 'menunggu');
+        $usuls = Usul::select('id','name', 'lokasi', 'volume', 'satuan','status','user_id','biaya','tahun_prioritas')->where('status', '!=', 'menunggu');
         if(Auth::user()->hasAnyRole(['panitia', 'pemdes'])){
 
 
