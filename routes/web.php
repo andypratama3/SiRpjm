@@ -34,6 +34,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
     Route::post('/usul/status/{usul}', [UsulController::class, 'status'])->name('dashboard.usul.status');
     Route::resource('hasil-usul', HasilUsulController::class, ['names' => 'dashboard.hasil.usul']);
 
+    Route::get('/print/hasil-usul', [HasilUsulController::class, 'print'])->name('print.hasil.usul');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

@@ -50,4 +50,10 @@ class HasilUsulController extends Controller
         flash()->success('Hasil Usul Berhasil Di Hapus.');
         return redirect()->route('dashboard.hasil.usul.index');
     }
+
+    public function print()
+    {
+        $usuls = Usul::select('id','name', 'lokasi', 'volume', 'satuan','status','user_id','biaya','tahun_prioritas')->where('status', '!=', 'menunggu')->get();
+        return view('dashboard.hasil-usul.print', compact('usuls'));
+    }
 }

@@ -8,6 +8,8 @@
             <h5 class="card-title">Halaman Hasil Usul</h5>
             @can('mengusulkan-create')
                 <a href="{{ route('dashboard.usul.create') }}" class="btn btn-primary btn-sm">Tambah Usul</a>
+                <a href="{{ route('print.hasil.usul') }}" class="btn btn-primary btn-sm">Print Hasil</a>
+
             @endcan
         </div>
         <div class="card-body mt-0">
